@@ -1,0 +1,398 @@
+<!-- split stop -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>用户信息录入</title>
+        <link href="https://cdn.bootcss.com/twitter-bootstrap/3.4.1/css/bootstrap.css" rel="stylesheet">
+    </head>
+    <body style="-webkit-overflow-scrolling: touch;">
+        <!-- split info.html -->
+        <div style="margin: 0; padding: 0; width: 100%; height: 100vh; background: rgb(244,244,244); overflow-x: hidden;">
+            <div class="card">
+              <div class="cell">
+                <div class="cell-label">请完善信息</div>
+              </div>
+              <div class="cell">
+                <span id="namedot" class="dot dot-success"></span>
+                <label class="cell-label" for="name">姓名</label>
+                <input id="name" class="cell-input" placeholder="请输入姓名" disabled></input>
+              </div>
+              <div class="divider"></div>
+              <div id="phonecell" class="cell">
+                <span id="phonedot" class="dot dot-warning"></span>
+                <label class="cell-label" for="phone">手机号</label>
+                <input type="number" id="phone" class="cell-input" placeholder="请确认您的手机号" autofocus></input>
+              </div>
+              <div class="divider"></div>
+              <div id="idcardcell" class="cell">
+                  <span id="idcarddot" class="dot dot-warning"></span>
+                  <label class="cell-label" for="phone">身份证号</label>
+                  <input type="text" id="idcard" class="cell-input" placeholder="请输入您的身份证号"></input>
+                </div>
+              <div class="button button-primary" id="submit">
+                <a>确定</a>
+              </div>
+              <div class="back">
+                  <a href="javascript:;" onclick="javascript:history.back();"><img width="100%" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAFEklEQVRoQ9VaTXIaRxT+3gCyd5GqBNvgRQK7oBNYOYHlE1haJigldAKhEwhVIFlaPoHxCSSdQHgHyUJ4C6qStZP4mZd6PTSa6RmYGZhRVVgy/fO+16+/99eEBH7Fs/vNV7npWyKugLEL4iJARe/S3AdTH4QrZuo8jTPX/eOt7+tuT6suIEK/zk3fMdk1AlVWWYfBHWKr8TjOfFkVTGwASvCNyREzakTYXEVwcw4zvhOh8TjKnscFEgtAqTU4AlN9keDM/JWADoj6APVhc18Ja4k5cRHMRQYqRPRLEHABAuJ6r1o4j6qYSADKf98X2R5/DjIVBr4QqP04yrSjas85xekeg/cIeOc7ETEtK/e++9uWo4Alv1AAP/91t0c2f/RpnfkTMrl6lE2WCSDKwXRcB9EH9zg5Dbbo4J/ft9srAyi37vYB/uhdmL/ahP1/q4VOmHbifP+pNahYjAu/edFBt7p9sWithScQKDzovFfdrsURLO7YUuuuQeAj77zFIAIBiNlYzJ+jLhJXyLDxQcqzid4HmZMPgLqw08mN2+YXTQ4TZJ3vJghFtZnsjnnnfABKrcGNl22W2+A6QobN9YEAd3rVwo57ngdAqTkU53SmB/AL2HwYCPNOMOO4d5hv6HlzAE48M7nVpiNOqXdYWClEWCSUYhrQCTE2p8THUZms1Bx0NDuJKT2Ns2+0z5kDKLeGdQAnevMpeCfqBmFalO8OTdKl625dd6v53ahzM6Ab19jTbjUv8kIBMLUP5k/dw8J+lMWjjAkQXrZeyu/muuXm4EI7O/cpKAA+2rKyb9b1sFqAJIRXMorHtie3z8AcBSgAbuaR2KZXze9F0WzYmKSE1/uUWsO2jp0kFBdGoll4fG8iCxMu7HvSwgdZyuMou0Wm15U/o0aVS9nGe2Fj23zQ2qayxcGSm32SoM40NO8G46ZUAKcC4ArAWzVoTfZJW3hlRi42AnBN5dbg1pWAz/k1zMbN7y8hvHMP3P6K+3ICrIVZNWgLCgDj8nxUhZmU7wEAG792/8iLScX6uenNmRjPScXZrPzncBcWLvWclADwRbdaOIgjWNSxywGsqDkn6Z90CPjhWZB0QPhNqDmUatmPs43Xu8Sgq7RBeC4x41vyNJoyiAAafaYlHV9EtcegcbOYP7WTMDLG0/RCiRROIjCUSDWYSxiEeYFVMCdm4EnZkg6nEwRRbg4vQVBZnI7bXiahSQDE0oRGpZQbk/6cAtcM6oLiJCOnhVldCCMOT0oJPDyNskUJ+18sqQ+otkVO6k3vK2G0J6kX9OYpJEGpplYFBIMbctJxAkcj5Z1rX0Vd3mThZQpboqyoWV/kwpYGYmQ8qUaWoXZvlPeDMsbg4q4vMEsvPF4Ewl8XxQNZ2UpocVcW/F+X17VGgrszaPQO88dhR7/O91JzeEYEo4kSs8GxFAS4YwMHSdZNZT+hSrb4zN9IXLHFpEGoJh+zlPBcyYpy5hewcqfrliAdDzs+AchTi2XggYn212ryzU9CdW3G7aD+LgNtYmrH6bY/d/lVm9VXxlT95kxuL4pyQtuspp8Aoe4/DWeUejogjW5pcsu7CGvW6Lap6LyfmDW6FzxNEK2DUXc3MMLuUywA2mO/3pjUGKgtAhK2qfldBCeopwaNqA5OrxEbgJ4477azXVv0dCAMiDIVshpxuvzmmisDcC8kYDZeTXctZmlJ7YJRdBUKtH19A0GeDlzZRJ3RU+YqrraDFPIfcWxacxruOkAAAAAASUVORK5CYII="></img></a>
+              </div>
+              <!-- alert弹窗 -->
+              <div class="alert">
+                <div class="mask"></div>
+                <div class="content">
+                  <div class="title">提示</div>
+                  <div class="text">提示内容</div>
+                  <div class="button">确定</div>
+                </div>
+              </div>
+            </div>
+            <style>
+              body {
+                margin: 0;
+                padding: 0;
+              }
+              input {
+                border: none;
+                outline: none;
+                background: transparent;
+              }
+              input[disabled] {
+                color: #666;
+              }
+              .divider {
+                width: 100%;
+                height: .2667vw;
+                background: #eee;
+              }
+              .card {
+                margin: 3vw;
+                box-shadow: 0 0 1vw rgba(220, 220, 220, .8);
+                background: #fff;
+              }
+              .cell {
+                display: flex;
+                background: #fff;
+                height: 10vw;
+                line-height: 10vw;
+                font-size: 4vw;
+                margin: 2vw 0;
+                align-items: center;
+              }
+              .cell.has-error {
+                background: rgba(255,0,0,.2);
+              }
+              .cell .cell-label {
+                flex: 2;
+                margin: 0 0 0 2vw;
+                font-weight: 700;
+                color: #757575;
+              }
+              .cell .cell-input {
+                flex: 5;
+                text-indent: 2vw;
+              }
+              .cell .dot {
+                flex: 0 0 2vw;
+                width: 2vw;
+                height: 2vw;
+                margin-left: 2vw;
+                border-radius: 100%;
+                background: #aaa;
+              }
+              .cell .dot.dot-success {
+                background: green;
+              }
+              .cell .dot.dot-warning {
+                background: orange;
+              }
+              .cell .dot.dot-error {
+                background: red;
+              }
+              .button {
+                width: 100%;
+                margin: 0 auto;
+                color: #fff;
+                text-align: center;
+                font-size: 4.2vw;
+                cursor: pointer;
+              }
+              .button > a {
+                display: block;
+                width: 100%;
+                height: 10vw;
+                line-height: 10vw;
+                color: inherit;
+                font-size: inherit;
+                text-decoration: none;
+              }
+              .button.button-primary > a{
+                background: #2895eb;
+              }
+              .alert {
+                display: none;
+                transition: all 200 ease-in-out;
+                -webkit-transition: all 200 ease-in-out;
+              }
+              .alert .mask {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 1000;
+                background-color: rgba(100,100,100,.8);
+              }
+              .alert .content {
+                position: fixed;
+                top: 50%;
+                left: 6vw;
+                right: 6vw;
+                padding-top: 4vw;
+                transform: translateY(-50%);
+                background: #fff;
+                border-radius: 1vw;
+                z-index: 5000;
+                text-align: center;
+              }
+              .alert .content .title {
+                margin-bottom: 3.2vw;
+                font-weight: 700;
+                font-size: 4vw;
+              }
+              .alert .content .text {
+                margin: 6vw 4vw;
+              }
+              .alert .content .button {
+                position: relative;
+                color: #576B95;
+                font-weight: 700;
+                -webkit-tap-highlight-color: rgba(0,0,0,0);
+                height: 14vw;
+                line-height: 14vw;
+                /* border-top: 1px solid #eee; */
+              }
+              .alert .content .button::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                right: 0;
+                height: 1px;
+                border-top: 1px solid rgba(0, 0, 0, 0.1);
+                color: rgba(0, 0, 0, 0.1);
+                -webkit-transform-origin: 0 0;
+                transform-origin: 0 0;
+                -webkit-transform: scaleY(0.3);
+                transform: scaleY(0.3);
+              }
+              .back {
+                position: fixed;
+                right: 5vw;
+                bottom: 15vw;
+                width: 8vw;
+                height: 8vw;
+                padding: 3vw;
+                box-sizing: content-box;
+                border-radius: 50%;
+                background: transparent;
+              }
+            </style>
+            <script>
+                document.addEventListener('DOMContentLoaded', function handleContentLoad() {
+                  document.removeEventListener('DOMContentLoaded', handleContentLoad)
+
+                  window.isWeb = false // 当前环境是否web环境
+                  window.memberInfoUrl = 'http://api.card.xyk51.cn/v1' + '/member/info' // 获取用户基本信息接口地址
+                  window.applyCardUrl = 'http://api.card.xyk51.cn/v1' + '/apply-card/apply' //申请信用卡季接口地址
+  
+                  var loginInfo = {
+                      'partner':'',
+                      'token': '',
+                      'userName': undefined
+                  }
+  
+                  function queryString(url){
+                      var result = {},
+                          keyReg = /(\?(.*?)=|&(.*?)=)/g,
+                          valReg = /=(.*?)&/g,
+                          urls = url ? (url + "&") : "",
+                          keys = urls.match(keyReg) || [],
+                          vals = urls.match(valReg) || [];
+                      for (var i = 0, size = keys.length; i < size; i++) {
+                          result[keys[i].replace(/(\?|=|&)/g, '')] = vals[i].replace(/(=|&)/g, '');
+                      }
+                      return result;
+                  }
+  
+                  function getLoginInfo(callback) {
+                      // web环境
+                      if (!window.Native && !window.webkit) {
+                        return callback();
+                      }
+  
+                      // APP环境
+                      if (window.Native) {
+                        var info = window.Native.getLoginInfo();
+                        info = typeof info === 'string' ? JSON.parse(info) : info;
+                        // alert('info:::' + JSON.stringify(info))
+                        return callback(info)
+                      }
+  
+                      // APP的webkit环境
+                      if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.getLoginInfo) {
+                          window.webkit.messageHandlers.getLoginInfo.postMessage(null);
+                          setTimeout(function () {
+                            // alert('webkit:::' + JSON.stringify(window.loginInfo))
+                            callback(window.loginInfo);
+                          }, 10);
+                          return;
+                      }
+                  }
+  
+                  function requireLogin(url) {
+                      if (window.Native) {
+                          return window.Native.requireLogin('');
+                      }
+                      if (window.webkit && window.webkit.messageHandlers) {
+                        return window.webkit.messageHandlers.requireLogin.postMessage(url);
+                      }
+                      console.warn('当前设置为APP环境，请在APP环境打开');
+                  }
+                  
+                  if (!window.isWeb) {
+                    // 获取登陆信息
+                    getLoginInfo(function (info) {
+                        if (!info) { return requireLogin(''); }
+                        loginInfo.partner = info.partner
+                        loginInfo.token = info.token
+                        // 获取用户基本信息
+                        $.ajax({
+                          url: window.memberInfoUrl,
+                          success: function(res) {
+                            console.log(res)
+                            // alert(JSON.stringify(res))
+                            // 用户基本信息存在loginInfo
+                            loginInfo.userName = res.data.realname
+                            var $name = $('#name')
+                            if (!loginInfo.userName) {
+                              $name.removeAttr('disabled').focus()
+                            };
+                            // 更新视图
+                            $name.val(loginInfo.userName).attr('disabled')
+                          },
+                          fail: function(err) {
+                            console.error('获取用户基本信息失败', err)
+                            // alert(JSON.stringify(err))
+                          },
+                          headers: { "X-Api-Partner": info.partner, "X-Api-Key": info.token }
+                        })
+                    })
+                  } else {
+                    // 从localStorage取token来获取用户基本信息
+                    console.warn('当前设置为web环境');
+                    // FIXME: 从主H5页面获取parnter
+                    window.partner = window.partner || 'default'
+                    // 获取用户基本信息
+                    // FIXME: 跨域
+                    $.ajax({
+                        url: window.memberInfoUrl,
+                        success: function(res) {
+                          console.log(res)
+                          // alert(JSON.stringify(res))
+                          // 用户基本信息存在loginInfo
+                          loginInfo.userName = res.data.realname
+                          var $name = $('#name')
+                          if (!loginInfo.userName) {
+                            $name.removeAttr('disabled').focus()
+                          };
+                          // 更新视图
+                          $name.val(loginInfo.userName).attr('disabled')
+                        },
+                        fail: function(err) {
+                          console.error('获取用户基本信息失败', err)
+                          // alert(JSON.stringify(err))
+                        },
+                        headers: { "X-Api-Partner": window.partner, "X-Api-Key": localStorage.getItem(window.partner + '.token') }
+                      })
+                  }
+
+
+                  // 解析params
+                  var params = queryString(location.search)
+                  var $phone = $('#phone')
+                  var $name = $('#name')
+                  var $idcard = $('#idcard')
+                  var $idcarddot = $('#idcarddot')
+                  var $idcardcell = $('#idcardcell')
+                  var $namedot = $('#namedot')
+                  var $phonedot = $('#phonedot')
+                  var $phonecell = $('#phonecell')
+                  $('#submit').click(function() {
+                    var phone = $phone.val()
+                    // 校验手机号
+                    if (!/^1[3|4|5|6|7|8|9][0-9]{9}$/.test(phone)) {
+                      $phonedot.addClass('dot-error')
+                      $phonecell.addClass('has-error')
+                      $phone.addClass('has-error').focus()
+                      return console.log('手机号格式错误')
+                    }
+                    var idcard = $idcard.val()
+                    if (!/^[1-9][0-7]\d{4}((19\d{2}(0[13-9]|1[012])(0[1-9]|[12]\d|30))|(19\d{2}(0[13578]|1[02])31)|(19\d{2}02(0[1-9]|1\d|2[0-8]))|(19([13579][26]|[2468][048]|0[48])0229))\d{3}(\d|X|x)?$/.test(idcard)) {
+                      $idcarddot.addClass('dot-error')
+                      $idcard.addClass('has-error').focus()
+                      $idcardcell.addClass('has-error')
+                      return console.log('身份证号输入有误')
+                    }
+                    // 请求申请相应银行信用卡的url地址
+                    $.ajax({
+                      url: window.applyCardUrl,
+                      method: 'POST',
+                      data: {
+                        username: '贝贝电商',
+                        password: 'duyu1984',
+                        product: decodeURI(params.bankName),
+                        name: $name.val(),
+                        phone: $phone.val(),
+                        idcard: $idcard.val()
+                      },
+                      headers: {
+                        'X-Api-Key': loginInfo.token || window.localStorage.getItem(window.partner + '.token'),
+                        'X-Api-Partner': loginInfo.partner || window.partner,
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                      },
+                      success: function(res) {
+                        console.log(res)
+                        if (res.code) {
+                          var $alert = $('.alert').eq(0)
+                          var $text = $('.alert .text').eq(0)
+                          $text.text(res.msg)
+                          $alert.css('display', 'block')
+                          $('.alert .button').eq(0).on('click', function() {
+                            $alert.css('display', 'none')
+                          })
+                          return console.error(res)
+                        }
+                        location.href = res.data.url
+                      },
+                      fail: function(err) {
+                        console.log(err)
+                        var $alert = $('.alert').eq(0)
+                          var $text = $('.alert .text').eq(0)
+                          $text.text('请求错误，请重试！')
+                          $alert.css('display', 'block')
+                          $('.alert .button').eq(0).on('click', function() {
+                            $alert.css('display', 'none')
+                          })
+                      }
+                    })
+                  })
+                })
+            </script>
+        </div>
+        <!-- split stop -->
+        <script src="http://static.card.xyk51.cn/assets/3229e029/jquery.js"></script>
+        <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.js"></script>
+    </body>
+</html>

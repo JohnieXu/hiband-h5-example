@@ -1,0 +1,5 @@
+node_modules/
+yarn.lock
+tree.txt
+dist/
+.DS_Store

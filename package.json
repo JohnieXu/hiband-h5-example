@@ -1,0 +1,43 @@
+{
+  "name": "apply-credit-card",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@bdchauvette/gulp-prettier": "^2.0.0",
+    "autoprefixer": "^9.5.1",
+    "browser-sync": "^2.26.5",
+    "del": "^4.1.1",
+    "gulp": "^4.0.2",
+    "gulp-art-include": "^0.2.1",
+    "gulp-html-postcss": "^7.1.4",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-htmlsplit": "^1.1.1",
+    "gulp-imagemin": "^5.0.3",
+    "gulp-inline-css": "^3.3.1",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sequence": "^1.0.0",
+    "gulp-smushit": "^1.2.0",
+    "imagemin-pngquant": "^7.0.0",
+    "inquirer": "^6.3.1",
+    "mocha": "^6.1.4",
+    "prettier": "^1.17.1",
+    "puppeteer": "^1.17.0",
+    "puppeteer-core": "1.13.0",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4",
+    "yargs": "^13.2.4"
+  },
+  "scripts": {
+    "dev": "./node_modules/.bin/gulp build -m=dev",
+    "server:dev": "./node_modules/.bin/gulp build -m=dev -s",
+    "server:test": "./node_modules/.bin/gulp build -m=test -s",
+    "server:prod": "./node_modules/.bin/gulp build -m=prod -s",
+    "build:test": "./node_modules/.bin/gulp build -m=test",
+    "build:prod": "./node_modules/.bin/gulp build -m=prod",
+    "publish:test": "./node_modules/.bin/gulp build -m=test",
+    "publish:prod": "./node_modules/.bin/gulp build -m=prod",
+    "uploadfile:test": "",
+    "uploadfile:prod": ""
+  }
+}

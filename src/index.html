@@ -1,0 +1,111 @@
+<!-- split stop  -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>办信用卡</title>
+        <link href="https://cdn.bootcss.com/twitter-bootstrap/3.4.1/css/bootstrap.css" rel="stylesheet">
+    </head>
+    <body style="-webkit-overflow-scrolling: touch;">
+        <!-- split index.html  -->
+        <meta name="viewport" content="user-scalable=no" />
+        <style>
+            .back {
+                position: fixed;
+                right: 5vw;
+                bottom: 15vw;
+                width: 8vw;
+                height: 8vw;
+                padding: 3vw;
+                box-sizing: content-box;
+                border-radius: 50%;
+                background: transparent;
+            }
+            .no-scrollbar::-webkit-scrollbar {
+                display: none!important;
+            }
+        </style>
+        <div id="scroll-wrapper" style="margin: 0; padding: 0; width: 100%; height: 100vh; background: rgb(244,244,244); overflow-x: hidden; -webkit-overflow-scrolling: touch;">
+            <!-- 头部轮播 -->
+            <img data-src="{{header.image}}" width="100%" style="border-radius: 5px; min-height: 100%; min-height: 160px; padding: 5.3vw 3.7vw 6vw 3.7vw; background: #fff;" alt=" " />
+            <div style="width: 100%; height: 2.6vw;"></div>
+            <!-- 今日推荐 -->
+            <div style="background: #fff;">
+                <div style="margin: 0; padding-top: 5.1vw; padding-bottom: 9.1vw; padding-left: 3.7vw; font-size: 4.6vw; font-weight: bold; line-height: 4.6vw; position: sticky; top: 0; background: #fff; z-index: 2;"><span style="display: inline-block; width: 1.067vw; height: 4.6vw; background: #2895eb; vertical-align: middle;"></span><span style="vertical-align: middle; padding-left: 2.67vw;">今日推荐</span></div>
+                <div style="overflow-x: scroll; -webkit-overflow-scrolling: touch;">
+                    <div class="clearfix no-scrollbar" style="overflow-x: scroll; overflow-y: hidden; width: calc(44vw * 7 + 4vw); padding-bottom: 6.4vw; padding-top: .5vw; margin-top: -.5vw;">
+                        {{ each recommend }}
+                            <a href="{{ $value['url'] }}" style="display: block; float: left; text-decoration: none; color: inherit; background: #fff;">
+                                <div style="width: 40vw; padding-bottom: 24.96vw; margin-left: 4vw; background-image: url('{{ $value['imgUrl'] }}'); background-size: 40vw; background-repeat: no-repeat;"></div>
+                                <p style="margin: 2vw 0 1vw 4vw; font-size: 3.2vw;">{{ $value['title'] }}</p>
+                                <p style="margin: 0 0 0 4vw; font-size: 2.6vw; color: rgb(154,154,154)">{{ $value['desc'] }}</p>
+                            </a>
+                        {{ /each }}
+                    </div>
+                </div>
+            </div>
+            <div style="width: 100%; height: 2.6vw;"></div>
+            <!-- 热门银行 -->
+            <div style="background: #fff;">
+                <div style="margin: 0; padding-top: 5.1vw; padding-bottom: 9.1vw; padding-left: 3.7vw; font-size: 4.6vw; font-weight: bold; line-height: 4.6vw; position: sticky; top: 0; background: #fff;"><span style="display: inline-block; width: 1.067vw; height: 4.6vw; background: #2895eb; vertical-align: middle;"></span><span style="vertical-align: middle; padding-left: 2.67vw;">热门银行</span></div>
+                <div style="display: flex; justify-content: center; align-items: center; padding: 0 0vw; flex-wrap: wrap;">
+                    {{ each hot }}
+                        <a href="{{ $value['url'] }}" style="flex: 0 0 24vw; text-align: center; text-decoration: none; color: inherit;">
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAmVBMVEUAAADOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs6kpKTMzMyrq6unp6fIyMjKysq4uLi0tLS6urqvr6+2trbDw8PFxcW+vr7AwMCxsbG/v7+6wbddAAAAIXRSTlMA8/tkUQGuzO/jvZ0+OBwQBtKmxsRsXEguIRflhHRzWohyqedRAAAElUlEQVRo3t2baXeiMBSGQ1EU1Lp2Oq12Zq5ACKvi//9xE5BKO5qNVefth5oDh+fkPVlukhukrPlU362spTnWALSxubRWO306R61qMftlmHBTpvFrtkCt6F03NOBKM/T3pqlz3XoCCT1ZepOuzyYaSEubzJqhDgdrUNR6MGwAu4QKWtZFT0dQUaNpDezzCmpo9VzV5RcNakl7qeT32wZqa/Omzv0xhgY0/qE6OE6gIU0WSq1qBI1ppNDGfm6hQW1/ynJfNWhU2qscd/AEDetpIMP9TbmNk3/L1rf7Or+2wqXkV0F71qAlaT+5/deE1mRy+vNiBC1qxB7DJtCqJsx5AVrWD8Y8OIaWNb45Sw430Lo2tyKDF5CX7cUkdPd7NySxZ4O8Xm70JE0WanvJMfBDNwO7oR8cE8+WhWvXfcpQwaYU+ik3VUEbV3GsJBcnB99xM25Jdh3/kGBJ8vSfljWSouYeO/srOZnjcuzR9/Y1kPOYpAX1Bjslco4PvlV4Ka5tHOQes5Q7HsTiWi+HjApzPM6xHHTpuGyVN2KPSyqfLXZ8U3JnIo/DK485jocix2flrMT32GHUVuS4cJaaawysh9keix3HHgOtzQuwDrflHXkeix0/enBbegG2GM+z/rOvrKx3wW1ZxT4SK7AUYcVoVsj5znUaKLcmGRjS+fPSvra4c9Ri3D14vMhHj07B5Rjy0Qf4g4KNPsAGBZt9gE2E5vRf1/2Yas4LtqoOmOWgyQu9dGAqCVKnRLuOhL5gnTRIgCkd7XhT8TEglP0ZUwVC0bcvs1Nw5E3Kf9CKv2JITuEZnB6xhI7pGRyeEv4KY4UsQWyJIyf/VOTZtg2CP9sjbm5PhAXxpoVEATUmZzCRWSNdwASLwmtkCj5VFSx4e4vGInBUBRyJwGOk9QPWEKiD7aLhlEV1MFQA2xhnv0sYxrY6WNlqG5+iiMQYCuGYRNEJ26pWqzYu2zvQEcX1Y7t4Hvu0GB48W7VxbRXBFJQV6ZeLx3nRjxXBWzRSA3uncJ/JT86kxM+L4clTA4+QpQg+FOC4MKAAHxTBFlr1A16hXT/gHdL7Aeto2g94iub9gOcImX2AzSyg7wNsUPBHH+APCp71AZ7ly9TuwdoCURndgw2USeeDSRUw4YP1cvOFKUyUZ6cyvOVvviCLu5TwKZiKmpcJB2dwGntZ0YvTMzgoHkd50fG5CwkLnaWzsTg5XJYwCcY4iX2nIMWYKg7CghTnjy9LmEOC2WhdsKUIOD/0uOyXRRHx0y9FQiLf+SynPomi8u1sO5NltzYXbKLGQRo635eptFiWr4tf3w7TIOZuorLHENqRasmJRNvGaA235NbdinDhltao1KDLzZeB8DCkPlh4GIIG3YEH4gOv+mDxgReadgW+SmwzumnVhswxLgndWtyQMI5xRQfXCal3JkESxsF190f16+E9JSd0kY5xbwkorafc3F+SUbtpVfeZSNZe6tz9Jgu2kx553wmhzafA3n/Sb7Npzo+R2N1QKvv67ZGS96mejTpc4/nxLmjUupLyqJdwKl07evyLVhWulv0Pl+kavj74F0XRz8r/5GZKAAAAAElFTkSuQmCC" data-src="{{ $value['imgUrl'] }}" style="width: 10.67vw; border-radius: 50%;" />
+                            <p style="margin: 2.4vw 0 7.73vw 0; font-size: 3.2vw; color: rgb(33,32,32);">{{ $value['title'] }}</p>
+                        </a>
+                    {{ /each }}
+                </div>
+            </div>
+            <div style="width: 100%; height: 2.6vw;"></div>
+            <!-- 最受欢迎 -->
+            <div style="background: #fff;">
+                <div style="margin: 0; padding-top: 5.1vw; padding-bottom: 6vw; padding-left: 3.7vw; font-size: 4.6vw; font-weight: bold; line-height: 4.6vw; position: sticky; top: 0; background: #fff;"><span style="display: inline-block; width: 1.067vw; height: 4.6vw; background: #2895eb; vertical-align: middle;"></span><span style="vertical-align: middle; padding-left: 2.67vw;">最受欢迎</span></div>
+                {{ each popular }}
+                    <div style="display: flex; justify-content: center; align-items: center; margin: 5.33vw 3.73vw 0 3.73vw; padding-bottom: 5.33vw; border-bottom: 1px solid rgb(232,232,232); text-decoration: none; color: inherit;">
+                        <div style="flex: 3;">
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVkAAADhCAMAAABVwjZFAAAAYFBMVEUAAADOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs6kpKTLy8urq6uvr6+np6fAwMC9vb2xsbGpqamysrLMzMytra2lpaXIyMjFxcW0tLS8vLzDw8O2tra4uLjDHNVDAAAAC3RSTlMA6pL5xoBXTBCVredkFtMAAASwSURBVHja7NxbcpwwEIVhxvEtaS4ChCSQgP3vMnHSKceePDFSNe053xL+6hIgQNW7l4fHyzeCo75dHh9eqiuvTxeC212eXqsPntE1l8tz9Y/vBPl8fw/7gyCnHxV7ICgytc8Euf1ea19x8crv8naH8ESQ39OvshjZEi5V9UJQwgtuDAp5qB4JSnjEMlvIpcLuVhnfKoIyUJahrBooy1BWDZRlKKsGyjKUVQNlGcqqgbIMZdVAWYayaqAsQ1k1UJahrBooy1BWDZRlKKsGyjKUVQNlGcqqgbIMZdVAWYayaqAsQ1k1UJahrBooy1BWDZRlKKsGyjKUVQNlGcqqgbIMZdVAWYayaqAsQ1k1UJahrBooy1BWDZRlKKsGyjKUVQNlGcqqgbIMZdVAWYayapykrGuWft/idJu47cPaODqFU5R185q20fv2Vt6PW1rnU7Q9Q1k399GbOg/Txv4UaU9Q1i27NyHUeYRg/L40JE6+rFs3b+qcjN9W+akVL+uWzYY6r2C3RTytdFk3b22ocwvtJr7WSpede2/q/IzvZ5IkXtat0dQlmCi71IqXbVIb6hJCmxoSJF52jaEuw2wrCRIvO3R1KeNAgsTLbr4uxe8kSLzs1NaltJEEiZftbF2KHUmQeFlfrqzxJEi8bJy870rwfrzv1aAfUhpKSGnoSZB42aag+35S+MJQlqGsGijLUFYNlGUoqwbKMpRVA2XZVyvrXFPMfb9hXPty7vs92Ba7sYxu2kiQeNmSO98tCRIv2+GdQhFFy1qU/QNlc0LZUlC2FJQtBWVLua1sCOaTgLLslrLBtL77pDUBZdnxsqYb1uWjdZhMQNk3N5QNXZob91EzJ4+y7GjZYP7780w/GZR9c0PZsXd0xQ2YWXa0bGjTTFfcvFuUZQfLmnF1dKXpO9x1saNlfWroilsmi7LsYFkTF0dX5qENKMuOlQ32vyO7RoNnMHa8rKPP3LxbPN3+dXg1mPpl/mRNXcCOzF9Hy9Z22oeP0u4N9rreHS0bjLGfXJ2XYjsSJF625D+MEwkSL1vyv9v7/pIjdXUpXSJB4mXLnW8Q4n1/18U3ofkFu88kSLys4x3V7MzU3/dXnjSXOUgmtOnOzz4it0Qb8oe1UfwotIqENWs0IXdYE1fxkxHFy7qmjzbknti+cSTqBGXfpnZqQ8jXNbQnmNhTlHXNsnc2ZBvYLi3yE3uKskTN0u9T5601t7Gt76a9F794/XKSskRu7lMcfXsbP8Z0jgOT6TRlvyCUZSirBsoylFUDZRnKqoGyDGXVQFmGsmqgLENZNVCWoawaKMtQVg2UZSirBsoylFUDZRnKqoGyDGXVQFmGsmqgLENZNVD2Zzv2ksJADMRAVJ6fnen73zdD0CZkF+yFoN4RCmFDG2VjUNYoG4OyRtkYlDXKxqCsUTYGZY2yMShrlI1BWaNsDMoaZWNQ1igbg7JG2RiUNcrGoKxRNgZljbIxKGuUjUFZo2wMyhplY2gvrLCrFVZoOgorHNoKK2zqhRW6eGiXaJLOwnynpMFo52tDj6sw26WPV2Gul+wuzHTrwWpt+mLt4hubpV36Mk7aztDOoR99OxqXr//t7di6JHsDyY02Be8i7rcAAAAASUVORK5CYII=" data-src="{{ $value['imgUrl'] }}" style="width: 100%;" />
+                        </div>
+                        <div style="flex: 5; padding-left: 4vw;">
+                            <h3 style="margin-top: 0; margin-bottom: 1vw; font-size: 4.26vw; font-weight: bold; color: rgb(33,32,32);">{{ $value['title'] }}</h3>
+                            <p style="margin-bottom: 1vw; font-size: 3.73vw; color: rgb(156,156,156);">{{ $value['desc'] }}</p>
+                            <p style="margin-top: 1vw; margin-bottom: 0; font-size: 3.2vw; color: rgb(156,156,156);">{{ $value['applyText'] }}<strong style="color: rgb(243,0,0);">{{ $value['applyCount'] }}</strong><a href="{{ $value['url'] }}" style="float: right; border: .267vw solid #2895eb; font-size: 3.2vw; line-height: 6.5vw; text-decoration: none; color: #2895eb; padding: .6vw 2.6vw; border-radius: .53vw;">{{ $value['buttonText'] }}</a></p>
+                        </div>
+                    </div>
+                {{ /each }}
+            </div>
+            <script>
+                window.addEventListener('DOMContentLoaded', function() {
+                    var $window = $(window);
+                    var $scrollWrapper = $('#scroll-wrapper') // 懒加载的容器
+                    var lazyImgs = $.map($('img[data-src]').get(), function (i) {
+                        return $(i);
+                    });
+                    var loadedArr = new Array(lazyImgs.length).fill(undefined)
+                    var onScroll = function() {
+                        var wtop = $scrollWrapper.scrollTop();
+                        if (lazyImgs.length > 0) {
+                            var wheight = $scrollWrapper.height();
+                            $.each(lazyImgs, function (index, $i) {
+                                // 出现在窗口内且未加载
+                                if (($i.offset().top - wtop < wheight) && !loadedArr[index]) {
+                                    // console.log($i.attr('data-src').replace('http://static.card.xyk51.cn/upload/file/2019/05',''));
+                                    // console.log($i[0])
+                                    $i.attr('src', $i.attr('data-src'));
+                                    loadedArr[index] = true
+                                }
+                            });
+                        }
+                    };
+                    $scrollWrapper.scroll(onScroll);
+                    onScroll();
+                })
+            </script>
+        </div>
+        <!-- split stop  -->
+        <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+        <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.js"></script>
+    </body>
+</html>
