@@ -1,5 +1,7 @@
 # hiband-h5页面模板
 
+[![time tracker](https://wakatime.com/badge/github/JohnieXu/hiband-h5.svg)](https://wakatime.com/badge/github/JohnieXu/hiband-h5)
+
 ## 开发环境
 
 模板用的数据是`config/data.js`里面的`data.dev`
